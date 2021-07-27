@@ -98,10 +98,10 @@ const ResultPanel = (props) => {
 
   return (
     <>
-      <h1>Counter: {props.count}</h1>
+      <h1>Counter: {props.count}{props.count > 10 ? <span>. Congratulations!</span> : null}</h1>
       <h1>Result: {props.result}</h1>
     </>
   )
 }
 
-ReactDOM.render(<Counter result="0" MathButton />, document.getElementById('root'))
+ReactDOM.render(<Counter result="0" MathButton ResultPanel />, document.getElementById('root'))
