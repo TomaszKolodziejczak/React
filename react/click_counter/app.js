@@ -67,8 +67,10 @@ class Counter extends React.Component {
           type="add"
           click={this.handleMathClick}
         />
-        <h1>Counter: {this.state.count}</h1>
-        <h1>Result: {this.state.result}</h1>
+        <ResultPanel
+          count={this.state.count}
+          result={this.state.result}
+        />
       </>
 
       // <React.Fragment>
@@ -92,6 +94,14 @@ const MathButton = (props) => {
   )
 }
 
+const ResultPanel = (props) => {
 
+  return (
+    <>
+      <h1>Counter: {props.count}</h1>
+      <h1>Result: {props.result}</h1>
+    </>
+  )
+}
 
 ReactDOM.render(<Counter result="0" MathButton />, document.getElementById('root'))
