@@ -24,15 +24,15 @@ class ShoppingCart extends React.Component {
   }
 
   render() {
-
-    const style = this.state.shoppingCart === 0 ? { opacity: 0.3 } : {};
+    const { shoppingCart, avalilableProducts } = this.state
+    const style = shoppingCart === 0 ? { opacity: 0.3 } : {};
 
     return (
       <>
-        <button disabled={this.state.shoppingCart ? false : true} onClick={this.handleRemoveFromCart}>-</button>
-        <span style={style}>{this.state.shoppingCart}</span>
-        <button disabled={this.state.shoppingCart === this.state.avalilableProducts ? true : false} onClick={this.handleAddToCart}>+</button>
-        {this.state.shoppingCart > 0 && <button onClick={this.handleBuyButton}>Buy</button>}
+        <button disabled={shoppingCart ? false : true} onClick={this.handleRemoveFromCart}>-</button>
+        <span style={style}>{shoppingCart}</span>
+        <button disabled={shoppingCart === avalilableProducts ? true : false} onClick={this.handleAddToCart}>+</button>
+        {shoppingCart > 0 && <button onClick={this.handleBuyButton}>Buy</button>}
       </>
     )
   }
