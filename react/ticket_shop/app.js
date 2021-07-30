@@ -1,7 +1,20 @@
 // const PositiveMsg = () => <p>Go ahead and buy your ticket!</p>;
 // const NegativeMsg = () => <p>Sorry, but you're under 16. You can not buy a ticket :(</p>
+// destrukturyzacja
 
 const ValidationMsg = (props) => <p>{props.msg}</p>
+
+const OrderForm = (props) => {
+  const { submit, isConfirmed, change } = props;
+  return (
+    <form onSubmit={submit}>
+      <input type='checkbox' id='age' onChange={change} checked={isConfirmed} />
+      <label htmlFor='age'> I am 16 or odler</label>
+      <br />
+      <button>Buy ticket</button>
+    </form>
+  )
+}
 
 class TicketShop extends React.Component {
 
@@ -36,16 +49,18 @@ class TicketShop extends React.Component {
     } else { return null }
   }
   render() {
+
+    const { isConfirmed } = this.state
+
     return (
       <React.Fragment>
         <h1>Get your ticket for the horror of the year</h1>
-        <form onSubmit={this.handleFormSubmit}>
-          <input type='checkbox' id='age' onChange={this.handleCheckboxChange} checked={this.state.isConfirmed} />
-          <label htmlFor='age'> I am 16 or odler</label>
-          <br />
-          <button>Buy ticket</button>
-          {this.displayMsg()}
-        </form>
+        <OrderForm
+          change={this.handleCheckboxChange}
+          submit={this.handleFormSubmit}
+          chacked={isConfirmed}
+        />
+        {this.displayMsg()}
       </React.Fragment>
     )
   }
