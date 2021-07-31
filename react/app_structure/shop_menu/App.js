@@ -8,7 +8,7 @@ class App extends React.Component {
       { id: 5, name: "Ham", active: false },
       { id: 6, name: "Sausage", active: true },
       { id: 7, name: "Hot-dog", active: true },
-      { id: 8, name: "Apple", active: true },
+      { id: 8, name: "Apple", active: false },
       { id: 9, name: "Potatoes", active: true },
     ]
   }

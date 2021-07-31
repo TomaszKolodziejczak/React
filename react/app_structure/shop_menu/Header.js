@@ -1,9 +1,12 @@
 const Header = (props) => {
 
-  // const msg = { props.items.length === 1 ? 'item' : 'items' }
+  const activeItems = props.items.filter(item => item.active)
+  const itemOrItems = activeItems.length === 1 ? 'item' : 'items'
+
   return (
     <header>
-      <h2>TOTAL: ({props.items.length} {props.items.length === 1 ? 'item' : 'items'})</h2>
+      <h2>TOTAL: ({activeItems.length} {itemOrItems})</h2>
+      <h2>$ {activeItems.length * 10}</h2>
     </header>
   )
 }
