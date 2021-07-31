@@ -12,11 +12,16 @@ class App extends React.Component {
       { id: 9, name: "Potatoes", active: true },
     ]
   }
+
+  handleChangeStatus = () => {
+    console.log('ok')
+  }
+
   render() {
     return (
       <>
         <Header items={this.state.items} />
-        <ListItems />
+        <ListItems items={this.state.items} changeStatus={this.handleChangeStatus} />
       </>
     );
   }

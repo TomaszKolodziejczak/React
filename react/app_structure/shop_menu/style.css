@@ -4,14 +4,14 @@ html {
 }
 
 li {
-    line-height: 160%;
+    line-height: 100%;
     padding: 20px 10px;
     cursor: pointer;
 }
 
 li:nth-child(even) {
-    background-color: rgb(7, 172, 172);
+    background-color: rgb(121, 202, 230);
 }
 li:nth-child(odd) {
-    background-color: darkcyan;
+    background-color: lightblue;
 }
