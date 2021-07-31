@@ -1,0 +1,17 @@
+html {
+    font-size: 20px;
+    font-family: sans-serif;
+}
+
+li {
+    line-height: 160%;
+    padding: 20px 10px;
+    cursor: pointer;
+}
+
+li:nth-child(even) {
+    background-color: rgb(7, 172, 172);
+}
+li:nth-child(odd) {
+    background-color: darkcyan;
+}
