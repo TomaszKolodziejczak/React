@@ -2,7 +2,8 @@ import React from 'react';
 import './Word.css'
 
 const Word = props => (
-    <li>Word</li>
+    <li>English: <strong>{props.en} </strong>
+        Polish: <strong>{props.pl}</strong></li>
 )
 
-export default Word
+export default Word;
