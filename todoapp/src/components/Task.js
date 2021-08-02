@@ -2,14 +2,15 @@ import React from 'react';
 
 const Task = (props) => {
 
-    const { text, deadline } = props.task
+    const { text, deadline, id } = props.task
+
     return (
         <div>
             <p>
                 <strong>{text} </strong>
                 <i>deadline: {deadline} </i>
-                <button onClick={() => console.log('done')}>Mark as done</button>
-                <button onClick={() => console.log('delete')}>delete</button>
+                <button onClick={() => props.change(id)}>Mark as done</button>
+                <button onClick={() => props.delete(id)}>delete</button>
             </p>
         </div>
     );
