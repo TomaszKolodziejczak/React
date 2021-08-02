@@ -52,13 +52,13 @@ class App extends Component {
 
   deleteTask = (id) => {
 
-    // method 1
-    // const tasks = [...this.state.tasks];
-    // const idx = tasks.findIndex(task => task.id === id)
-    // tasks.splice(idx, 1)
-    // this.setState({
-    //   tasks //tasks: tasks
-    // })
+    method 1
+    const tasks = [...this.state.tasks];
+    const idx = tasks.findIndex(task => task.id === id)
+    tasks.splice(idx, 1)
+    this.setState({
+      tasks //tasks: tasks
+    })
 
     // method 2
     let tasks = [...this.state.tasks];
