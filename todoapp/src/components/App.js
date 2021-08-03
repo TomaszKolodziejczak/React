@@ -47,6 +47,22 @@ class App extends Component {
         active: false,
         finishDate: null,
       },
+      {
+        id: 5,
+        text: 'excercise4',
+        deadline: '2021-08-08',
+        important: false,
+        active: false,
+        finishDate: null,
+      },
+      {
+        id: 6,
+        text: 'excercise4',
+        deadline: '2021-08-08',
+        important: false,
+        active: false,
+        finishDate: null,
+      },
     ]
   }
 
@@ -70,11 +86,10 @@ class App extends Component {
   }
 
   changeTaskStatus = (id) => {
-    console.log('changing' + id);
     const tasks = [...this.state.tasks];
     tasks.forEach(task => {
       if (task.id === id) {
-        task.active = false;
+        task.active = !task.active
         task.finishDate = new Date().getTime()
       }
     })
