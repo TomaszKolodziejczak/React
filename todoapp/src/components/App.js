@@ -44,7 +44,7 @@ class App extends Component {
         text: 'excercise4',
         deadline: '2021-08-08',
         important: false,
-        active: true,
+        active: false,
         finishDate: null,
       },
     ]
