@@ -102,7 +102,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        To Do App
+        <h1>To Do App</h1>
         <AddTask />
         <TaskList
           tasks={this.state.tasks}
