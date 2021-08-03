@@ -20,17 +20,20 @@ const TaskList = (props) => {
       task={task}
       delete={props.delete}
       change={props.change}
+      ffinishDate={props.finishDate}
     />)
 
   return (
     <>
       <div className="active">
         <h1>Tasks to do</h1>
-        {activeTasks > 0 ? activeTasks : <p>Nothing to do :)</p>}
+        {activeTasks.length ? activeTasks : <p>Nothing to do</p>}
       </div>
       <hr />
       <div className="done">
         <h3>Done tasks ({doneTasks.length})</h3>
+        {doneTasks.length > 5 &&
+          <span style={{ fontSize: 10 }}>You can see only 5 last done tasks</span>}
         {doneTasks.slice(0, 5)}
       </div>
     </>
