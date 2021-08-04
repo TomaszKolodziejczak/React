@@ -1,3 +1,5 @@
+// Basic app to fetch and display data -> pl-en dictionary in this example
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
