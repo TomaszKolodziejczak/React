@@ -4,65 +4,10 @@ import TaskList from './TaskList';
 import './App.css';
 
 class App extends Component {
-  counter = 7
+  counter = 0
   state = {
     tasks: [
-      {
-        id: 0,
-        text: 'excercise0',
-        deadline: '2021-08-08',
-        important: false,
-        active: true,
-        finishDate: null,
-      },
-      {
-        id: 1,
-        text: 'excercise1',
-        deadline: '2021-08-11',
-        important: false,
-        active: true,
-        finishDate: null,
-      },
-      {
-        id: 2,
-        text: 'excercise2',
-        deadline: '2021-08-08',
-        important: true,
-        active: true,
-        finishDate: null,
-      },
-      {
-        id: 3,
-        text: 'excercise3',
-        deadline: '2021-08-08',
-        important: true,
-        active: true,
-        finishDate: null,
-      },
-      {
-        id: 4,
-        text: 'excercise4',
-        deadline: '2021-08-08',
-        important: false,
-        active: false,
-        finishDate: null,
-      },
-      {
-        id: 5,
-        text: 'excercise4',
-        deadline: '2021-08-08',
-        important: false,
-        active: false,
-        finishDate: null,
-      },
-      {
-        id: 6,
-        text: 'excercise4',
-        deadline: '2021-08-08',
-        important: false,
-        active: false,
-        finishDate: null,
-      },
+
     ]
   }
 
@@ -107,7 +52,7 @@ class App extends Component {
       deadline, //deadline: deadline,
       important, //important: important,
       active: true,
-      finishDate: null
+      finishDate: null,
     }
     this.counter++
     this.setState(prevState => ({
