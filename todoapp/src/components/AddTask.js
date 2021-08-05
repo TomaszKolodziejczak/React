@@ -32,6 +32,7 @@ class AddTask extends Component {
     const { text, deadline, important } = this.state
     if (text.length > 2) {
       const add = this.props.add(text, deadline, important)
+      // debugger
       if (add) {
         this.setState({
           text: "",
