@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 
 
 const Home = () => <h1>Home</h1>
@@ -14,9 +14,11 @@ class App extends Component {
         <div>
           <header>
             <nav>
-              <ul><Link to="/">Start</Link></ul>
-              <ul><Link to="/news">News</Link></ul>
-              <ul><Link to="/contact">Contace</Link></ul>
+              <ul>
+                <li><NavLink to="/" exact activeClassName="home_selected">Start</NavLink></li>
+                <li><NavLink to="/news">News</NavLink></li>
+                <li><NavLink to="/contact" activeStyle={{ backgroundColor: 'gray', }}>Contace</NavLink></li>
+              </ul>
             </nav>
           </header>
           <section>
