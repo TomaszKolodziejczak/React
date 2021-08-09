@@ -42,6 +42,6 @@ section {
 }
 
 .home_selected {
-  color:cornflowerblue;
-  border-bottom-color: cornflowerblue;
+  /* color:cornflowerblue; */
+  border-bottom-color: yellow;
 }
