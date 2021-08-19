@@ -1,5 +1,6 @@
 import React from 'react'
 import Element from './Element';
+import { connect } from 'react-redux';
 
 const List = ({ rates }) => {
     const ratesElements = rates.map(rate => (
@@ -14,4 +15,10 @@ const List = ({ rates }) => {
     );
 }
 
-export default List;
+const connectReduxStateToProps = store => ({
+    rates: store.rates,
+})
+
+const ListConsumer = connect(connectReduxStateToProps)(List);
+
+export default ListConsumer;

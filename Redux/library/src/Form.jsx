@@ -1,9 +1,13 @@
 import React, { useState } from 'react'
+import { addRate, editRate } from './actions/appActions';
+import { connect } from 'react-redux';
 
 const Form = ({
+  addRate,
   author = '',
   comment = '',
   callback,
+  editRate,
   id,
   rate = 0,
 }) => {
@@ -36,7 +40,7 @@ const Form = ({
     };
 
     console.log(rateObject)
-    id ? console.log('Updating') : console.log('Adding');
+    id ? editRate(rateObject) : addRate(rateObject);
 
     if (id) {
       callback();
@@ -83,4 +87,12 @@ const Form = ({
   );
 }
 
-export default Form;
+const connectActToProsp = ({
+  addRate,
+  editRate,
+})
+
+const FormConsumer = connect(null, connectActToProsp)(Form);
+
+
+export default FormConsumer;

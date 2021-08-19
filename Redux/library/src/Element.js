@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import Form from './Form';
 
 
-const Element = ({ author, comment, rate }) => {
+const Element = ({ author, comment, rate, id }) => {
     const [isVisibleForm, setIsVisibleForm] = useState(false)
 
     const toggleElements = () => setIsVisibleForm(prev => !prev);
@@ -27,6 +28,7 @@ const Element = ({ author, comment, rate }) => {
             <p>Author: {author}</p>
             <p>Rate: {rate}</p>
             <p>Comment: {comment}</p>
+            {formOrButtonElement}
         </li>
     );
 }
