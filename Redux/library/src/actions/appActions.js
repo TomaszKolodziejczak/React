@@ -3,7 +3,7 @@ export const DELETE = 'DELETE';
 export const EDIT = 'EDIT'
 
 const addRate = ({ author, comment, rate }) => ({
-    type: ADD,
+    type: ADD_RATE,
     payload: {
         author,
         comment,
@@ -19,17 +19,21 @@ const deleteRate = id => ({
     }
 });
 
-data = {
-    author,
-    comment,
-    id,
-    rate,
-}
+// const data = {
+//     author,
+//     comment,
+//     id,
+//     rate,
+// }
 
-const editRate = ({ data }) => ({
+const editRate = ({ author, comment, id, rate }) => ({
     type: EDIT,
     payload: {
-        ...data
+        //    ...data
+        author,
+        comment,
+        id,
+        rate,
     }
 });
 
