@@ -8,6 +8,7 @@ import header2 from '../images/header2.JPG';
 import header3 from '../images/header3.jpg';
 
 const Header = () => {
+    ````
     return (
         <>
             <Switch>
