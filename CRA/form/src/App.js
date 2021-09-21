@@ -10,6 +10,7 @@ class App extends Component {
     email: '',
     password: '',
     accept: false,
+    message: '',
 
     errors: {
       username: false,
@@ -45,7 +46,77 @@ class App extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    console.log('enter')
+
+    const validation = this.formValidation();
+    if (validation.correct) {
+      this.setState({
+        username: '',
+        email: '',
+        password: '',
+        accept: false,
+        message: 'Form has been sent',
+
+        errors: {
+          username: false,
+          email: false,
+          password: false,
+          accept: false,
+        }
+      })
+    } else {
+      this.setState({
+        errors: {
+          username: !validation.username,
+          email: !validation.email,
+          password: !validation.password,
+          accept: !validation.accept,
+        }
+      })
+    }
+  }
+
+  formValidation = () => {
+    let username = false;
+    let email = false;
+    let password = false;
+    let accept = false;
+    let correct = false
+
+    if (this.state.username.length > 3 && this.state.username.indexOf(' ') === -1) {
+      username = true;
+    }
+
+    if (this.state.email.indexOf('@') !== -1) {
+      email = true;
+    }
+
+    if (this.state.password.length > 6) {
+      password = true;
+    }
+
+    if (this.state.accept) {
+      accept = true;
+    }
+
+    if (username && email && password && accept) {
+      correct = true;
+    }
+
+    return ({
+      username,
+      email,
+      password,
+      accept,
+      correct
+    })
+  }
+
+  componentDidUpdate() {
+    if (this.state.message !== '') {
+      setTimeout(() => this.setState({
+        message: ''
+      }), 3000)
+    }
   }
 
   render() {
@@ -95,6 +166,7 @@ class App extends Component {
           {this.state.errors.accept && <span>{this.messages.accept_incorrect}</span>}
           <button>Join</button>
         </form>
+        {this.state.message && <p>{this.state.message}</p>}
       </div>
     )
   }
