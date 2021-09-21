@@ -9,8 +9,21 @@ class App extends Component {
     username: '',
     email: '',
     password: '',
-    accept: false
+    accept: false,
 
+    errors: {
+      username: false,
+      email: false,
+      password: false,
+      accept: false,
+    }
+  }
+
+  messages = {
+    username_incorrect: 'Name must contain at least 3 characters with no spaces',
+    email_incorrect: "No '@' in email",
+    password_incorrect: 'Password must contain at least 7 characters',
+    accept_incorrect: "Unconfirmed"
   }
 
   handleChange = event => {
@@ -46,6 +59,7 @@ class App extends Component {
               name="username"
               value={this.state.username}
               onChange={this.handleChange} />
+            {this.state.errors.username && <span>{this.messages.username_incorrect}</span>}
           </label>
 
           <label htmlFor="email">Your email:
@@ -55,7 +69,9 @@ class App extends Component {
               name="email"
               value={this.state.email}
               onChange={this.handleChange} />
+            {this.state.errors.email && <span>{this.messages.email_incorrect}</span>}
           </label>
+
           <label htmlFor="password">Your password:
             <input
               type="password"
@@ -63,7 +79,9 @@ class App extends Component {
               name="password"
               value={this.state.password}
               onChange={this.handleChange} />
+            {this.state.errors.password && <span>{this.messages.password_incorrect}</span>}
           </label>
+
           <label htmlFor="accept">
             <input
               type="checkbox"
@@ -74,6 +92,7 @@ class App extends Component {
             />
             I agree on everything
           </label>
+          {this.state.errors.accept && <span>{this.messages.accept_incorrect}</span>}
           <button>Join</button>
         </form>
       </div>
