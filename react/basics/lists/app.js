@@ -1,24 +1,23 @@
-class ShoppingList extends React.Component {
+const ShoppingList = () => {
 
-    state = {
+    const [items] = React.useState({
         item1: "Fruits",
         item2: "Veges",
         item3: "Drinks"
-    }
+    })
 
-    render() {
-        return (
-            <>
-                <h1>Shopping List: </h1>
-                <ol>
-                    <ItemList name={this.state.item1} stock={3 + 2} />
-                    <ItemList name={this.state.item2} />
-                    <ItemList name={this.state.item3} />
-                </ol>
-            </>
-        )
-    }
+    return (
+        <>
+            <h1>Shopping List: </h1>
+            <ol>
+                <ItemList name={items.item1} stock={3 + 2} />
+                <ItemList name={items.item2} />
+                <ItemList name={items.item3} />
+            </ol>
+        </>
+    )
 }
+
 
 // const ItemList = (props) => {
 //     return (
@@ -26,8 +25,8 @@ class ShoppingList extends React.Component {
 //     )
 // }
 
-const ItemList = props => (
-    <li>{props.name} - {props.stock}</li>
+const ItemList = ({ name, stock }) => (
+    <li>{name} - {stock}</li>
 )
 
 
