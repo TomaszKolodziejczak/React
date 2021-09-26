@@ -1,17 +1,19 @@
-// import React, { useState, Fragment } from 'react';
+const ADDITION = 'addition';
+const RESET = 'reset';
+const SUBTRACTION = 'subtraction';
 
 const Counter = props => {
     const [count, setCount] = React.useState(0);
     const [result, setResult] = React.useState(props.result);
 
     const handleMathClick = (type, number) => {
-        if (type === 'subtraction') {
+        if (type === SUBTRACTION) {
             setCount(count + 1);
             setResult(result - number);
-        } else if (type === 'addition') {
+        } else if (type === ADDITION) {
             setCount(count + 1);
             setResult(result + number);
-        } else if (type === 'reset') {
+        } else if (type === RESET) {
             setCount(count + 1);
             setResult(props.result);
         }
@@ -21,50 +23,54 @@ const Counter = props => {
         <React.Fragment>
             <MathButton
                 name="-10"
-                number="10"
-                type="subtraction"
+                number={10}
+                type={SUBTRACTION}
                 click={handleMathClick}
             />
             <MathButton
                 name="-1"
-                number="1"
-                type="subtraction"
+                number={1}
+                type={SUBTRACTION}
                 click={handleMathClick}
             />
             <MathButton
                 name="Reset"
-                type="reset"
+                type={RESET}
                 click={handleMathClick}
             />
             <MathButton
                 name="+1"
-                number="1"
-                type="addition"
+                number={1}
+                type={ADDITION}
                 click={handleMathClick}
             />
             <MathButton
                 name="+10"
-                number="10"
-                type="addition"
+                number={10}
+                type={ADDITION}
                 click={handleMathClick}
             />
             <ResultPanel count={count} result={result} />
         </React.Fragment>
     );
 }
-const MathButton = props => {
-    const number = parseInt(props.number);
-
+const MathButton = ({ click, name, number, type }) => {
+    const handleOnClick = () => click(type, number);
     return (
-        <button onClick={() => props.click(props.type, number)}>{props.name}</button>
+        <button onClick={handleOnClick}>{name}</button>
     )
 }
 
-const ResultPanel = props => {
+const ResultPanel = ({ count, result }) => {
+    const additionalInfo =
+        count > 9
+            ? <span>Your first 10 clicks</span>
+            : null;
     return (
         <React.Fragment>
-            <h1>Clicked: {props.count}</h1>
-            <h1>Result: {props.result}</h1>
+            <h2>Clicked: {count}</h2>
+            <h3>Result: {result}</h3>
+            {additionalInfo}
         </React.Fragment>
     );
 };
