@@ -7,7 +7,7 @@ const App = () => {
     const handleOnClick1 = () => setText(`${text}a`)
 
     const [value, setValue] = React.useState('');
-    const handleOnChange = event => setValue(event.target.value);
+    const handleOnChange = event => setValue(event.target.value.toUpperCase());
     const handleOnClick = () => setValue('');
 
 
@@ -23,7 +23,7 @@ const App = () => {
                 type="text"
             />
             <button onClick={handleOnClick} >Reset</button>
-            <h1>{value.toUpperCase()}</h1>
+            <h1>{value}</h1>
         </React.Fragment>
     );
 }
