@@ -1,8 +1,8 @@
-import React, { useState, Fragment } from 'react';
+// import React, { useState, Fragment } from 'react';
 
 const Counter = props => {
-    const [count, setCount] = useState(0)
-    const [result, setResult] = useState(props.result)
+    const [count, setCount] = React.useState(0);
+    const [result, setResult] = React.useState(props.result);
 
     const handleMathClick = (type, number) => {
         if (type === 'subtraction') {
@@ -15,10 +15,10 @@ const Counter = props => {
             setCount(count + 1);
             setResult(props.result);
         }
-    }
+    };
 
     return (
-        <Fragment>
+        <React.Fragment>
             <MathButton
                 name="-10"
                 number="10"
@@ -49,7 +49,7 @@ const Counter = props => {
                 click={handleMathClick}
             />
             <ResultPanel count={count} result={result} />
-        </Fragment>
+        </React.Fragment>
     );
 }
 const MathButton = props => {
@@ -66,8 +66,8 @@ const ResultPanel = props => {
             <h1>Clicked: {props.count}</h1>
             <h1>Result: {props.result}</h1>
         </React.Fragment>
-    )
-}
+    );
+};
 
 const startValue = 0;
 
